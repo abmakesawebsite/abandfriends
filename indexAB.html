@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>sidebar | AB</title>
+    <link rel="stylesheet" href="indexAB.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-menu">
+            <h2 class="logo">Nathan</h2>
+            <i class='bx bx-menu toggle-btn'></i>
+        </div>
+        
+        <ul class="list">
+            <li class="list-item active">
+                <a href="#">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="link-name" style="--i:1
+                    ">Dashboard</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-user' ></i>
+                    <span class="link-name" style="--i:2">User</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-chat' ></i>
+                    <span class="link-name" style="--i:3">Messages</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2' ></i>
+                    <span class="link-name" style="--i:4
+                    ">Analytics</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-folder' ></i>
+                    <span class="link-name" style="--i:5
+                    ">File Manager</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-cart-alt' ></i>
+                    <span class="link-name" style="--i:6
+                    ">Order</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-heart' ></i>
+                    <span class="link-name" style="--i:7
+                    ">Favourites</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="link-name" style="--i:8
+                    ">Settings</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #digital-clock {
+            color: #fff;
+            text-align: center;
+            width: 500px;
+            padding: 8px;
+            margin-bottom: 200px;
+            transition: background-color 0.5s ease; /* Add smooth transition */
+            border-radius: 16px;
+        }
+
+        #digital-clock:hover {
+            background-color: #ffffff15; /* Change background color on hover */
+            backdrop-filter: blur(14px);
+            transition: background-color 0.5s ease; /* Add smooth transition */
+            border-bottom: 200px;
+        }
+
+        .hms {
+            font-size: 68pt;
+            font-weight: 300;
+        }
+
+        .ampm {
+            font-size: 22pt;
+            font-weight: 400;
+        }
+
+        .date {
+            font-size: 15pt;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="digital-clock">
+        <span class="hms"></span>
+        <span class="ampm"></span>
+        <br>
+        <span class="date"></span>
+    </div>
+
+    <script>
+        function updateTime() {
+            const dateInfo = new Date();
+            const hours = dateInfo.getHours();
+            const minutes = dateInfo.getMinutes();
+            const seconds = dateInfo.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            // Convert to 12-hour format
+            const formattedHours = (hours % 12) || 12;
+
+            // Add leading zeros if needed
+            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+            const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+            const time = formattedHours + ':' + formattedMinutes + ampm;
+            document.querySelector('.hms').innerText = time;
+
+            // Display the current date
+            const currentDate = dateInfo.toDateString();
+            document.querySelector('.date').innerText = currentDate;
+
+            // Update every second
+            setTimeout(updateTime, 1000);
+        }
+
+        // Initial call to start the clock
+        updateTime();
+    </script>
+
+    <script src="indexAB.js"></script>
+</body>
+
+</html>
